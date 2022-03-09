@@ -7,13 +7,10 @@ abstract class NotesState extends Equatable {
   List<Object> get props => [];
 }
 
-class NotesInitial extends NotesState {}
+class NotesInitialState extends NotesState {}
 
 class NotesLoadedState extends NotesState {
   final List<Note> notes;
 
   const NotesLoadedState(this.notes);
-
-  @override
-  List<Object> get props => [];
 }

@@ -7,7 +7,7 @@ abstract class NotesEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class LoadNotesEvent extends NotesEvent {
+class InitRepositoryWithNodesEvent extends NotesEvent {
   @override
   List<Object> get props => [];
 }

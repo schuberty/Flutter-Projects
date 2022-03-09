@@ -1,12 +1,21 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:todo_app/models/note.dart';
 
-class NoteService {
+class NoteRepository {
   late Box<Note> _notes;
 
   Future<void> init() async {
     Hive.registerAdapter(NoteAdapter());
     _notes = await Hive.openBox<Note>('notes');
+
+    if (_notes.isEmpty) {
+      await _notes.add(
+        Note(title: 'AOC II', description: 'Class 1', isCompleted: false),
+      );
+      await _notes.add(
+        Note(title: 'Intro to AI', description: 'Class 2', isCompleted: false),
+      );
+    }
   }
 
   List<Note> getNotes() {
@@ -28,4 +37,6 @@ class NoteService {
     final index = noteToUpdate.key as int;
     await _notes.put(index, newNote);
   }
+
+  bool get isEmpty => _notes.isEmpty;
 }
