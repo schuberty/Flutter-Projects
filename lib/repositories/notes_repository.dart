@@ -8,14 +8,14 @@ class NoteRepository {
     Hive.registerAdapter(NoteAdapter());
     _notes = await Hive.openBox<Note>('notes');
 
-    if (_notes.isEmpty) {
-      await _notes.add(
-        Note(title: 'AOC II', description: 'Class 1', isCompleted: false),
-      );
-      await _notes.add(
-        Note(title: 'Intro to AI', description: 'Class 2', isCompleted: false),
-      );
-    }
+    // if (_notes.isEmpty) {
+    //   await _notes.add(
+    //     Note(title: 'AOC II', description: 'Class 1'),
+    //   );
+    //   await _notes.add(
+    //     Note(title: 'Intro to AI', description: 'Class 2'),
+    //   );
+    // }
   }
 
   List<Note> getNotes() {
@@ -23,8 +23,8 @@ class NoteRepository {
     return notes.toList();
   }
 
-  void addNote(final Note note) {
-    _notes.add(note);
+  Future<void> addNote(final Note note) async {
+    await _notes.add(note);
   }
 
   Future<void> removeNote(final Note note) async {

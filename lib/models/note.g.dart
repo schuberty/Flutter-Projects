@@ -19,8 +19,7 @@ class NoteAdapter extends TypeAdapter<Note> {
     return Note(
       title: fields[0] as String,
       description: fields[1] as String,
-      isCompleted: fields[2] as bool,
-    );
+    )..isCompleted = fields[2] as bool;
   }
 
   @override

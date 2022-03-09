@@ -10,15 +10,27 @@ class NotesBloc extends Bloc<NotesEvent, NotesState> {
   final NoteRepository _noteRepository;
 
   NotesBloc(this._noteRepository) : super(NotesInitialState()) {
-    on<InitRepositoryWithNodesEvent>(((event, emit) async {
+    on<InitRepositoryWithNotesEvent>(((event, emit) async {
       await _noteRepository.init().whenComplete(() {
         final notes = _noteRepository.getNotes();
         emit(NotesLoadedState(notes));
       });
     }));
-  }
 
-  Future initRepository() async {
-    _noteRepository.init();
+    on<AddNoteEvent>(((event, emit) async {
+      await _noteRepository
+          .addNote(Note(title: event.title, description: event.description));
+      final notes = _noteRepository.getNotes();
+      emit(NotesLoadedState(notes));
+    }));
+
+    on<UpdateNoteEvent>(((event, emit) async {
+      final newNote = event.note;
+      newNote.isCompleted = !newNote.isCompleted;
+      final notes = _noteRepository.getNotes();
+      await _noteRepository
+          .updateNote(event.note, newNote)
+          .whenComplete(() => emit(NotesLoadedState(notes)));
+    }));
   }
 }

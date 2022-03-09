@@ -9,11 +9,10 @@ class Notes extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<NotesBloc>(
       create: (context) => NotesBloc(RepositoryProvider.of(context))
-        ..add(InitRepositoryWithNodesEvent()),
+        ..add(InitRepositoryWithNotesEvent()),
       child: BlocBuilder<NotesBloc, NotesState>(
         builder: (context, state) {
           if (state is NotesLoadedState) {
-            print("Loaded");
             return ListView(
               children: state.notes
                   .map(
@@ -22,7 +21,10 @@ class Notes extends StatelessWidget {
                       subtitle: Text(e.description),
                       trailing: Checkbox(
                         value: e.isCompleted,
-                        onChanged: (context) {},
+                        onChanged: (ctx) {
+                          NotesBloc(RepositoryProvider.of(context))
+                              .add(UpdateNoteEvent(e));
+                        },
                       ),
                     ),
                   )

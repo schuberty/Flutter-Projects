@@ -7,7 +7,20 @@ abstract class NotesEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class InitRepositoryWithNodesEvent extends NotesEvent {
+class InitRepositoryWithNotesEvent extends NotesEvent {
   @override
   List<Object> get props => [];
+}
+
+class AddNoteEvent extends NotesEvent {
+  final String title;
+  final String description;
+
+  const AddNoteEvent(this.title, this.description);
+}
+
+class UpdateNoteEvent extends NotesEvent {
+  final Note note;
+
+  const UpdateNoteEvent(this.note);
 }
