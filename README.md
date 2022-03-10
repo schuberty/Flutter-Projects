@@ -1,5 +1,7 @@
-# A Flutter To-do App
+English | [Portuguese](./README.pt-BR.md)
 
-* Equatable for object instance comparation.
-* Hive for data persistence.
-* BLoC for state management.
+<h1 align="center">ToDo App</h1>
+
+<div align="center">
+
+A ToDo Notes App made with Flutter, BLoC and Hive.
