@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-// TODO: Implement color palette with help of https://huemint.com/
+// TODO: Implement color palette with help of https://huemint.com/. For now keep using Dark theme
 
 const kBackgroundColor = Color(0xFF303030);
 const kAppBarBackgroundColor = Color(0xFF424242);

@@ -1,9 +1,8 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:todo_app/models/note.dart';
+import 'package:hive_test/hive_test.dart';
 import 'package:todo_app/notes/bloc/notes_bloc.dart';
 import 'package:todo_app/repositories/notes_repository.dart';
-import 'package:hive_test/hive_test.dart';
 
 void main() {
   group(

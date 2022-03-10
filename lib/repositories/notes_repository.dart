@@ -8,24 +8,23 @@ class NoteRepository {
     Hive.registerAdapter(NoteAdapter());
     _notes = await Hive.openBox<Note>('notes');
 
-    if (_notes.isEmpty) {
-      await _notes.add(Note(
-        title:
-            'This is a titleThis is a titleThis is a titleThis is a titleThis is a title',
-        description: 'And this is the description',
-        isCompleted: false,
-      ));
-      await _notes.add(Note(
-        title: 'This is a title',
-        description: 'And this is the description',
-        isCompleted: false,
-      ));
-      await _notes.add(Note(
-        title: 'This is a title',
-        description: 'And this is the description',
-        isCompleted: false,
-      ));
-    }
+    // if (_notes.isEmpty) {
+    //   await _notes.add(Note(
+    //     title: 'This is a title',
+    //     description: 'And this is the description',
+    //     isCompleted: false,
+    //   ));
+    //   await _notes.add(Note(
+    //     title: 'This is a title',
+    //     description: 'And this is the description',
+    //     isCompleted: false,
+    //   ));
+    //   await _notes.add(Note(
+    //     title: 'This is a title',
+    //     description: 'And this is the description',
+    //     isCompleted: false,
+    //   ));
+    // }
   }
 
   List<Note> get notes => [..._notes.values.toList()];
