@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('To-Dos'),
+        title: const Text('ToDo Notes'),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _startAddNewNote(context),
