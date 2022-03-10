@@ -15,8 +15,26 @@ class Note extends HiveObject with EquatableMixin {
   Note({
     required this.title,
     required this.description,
-  }) : isCompleted = false;
+    required this.isCompleted,
+  });
 
   @override
-  List<Object?> get props => [key, title, description, isCompleted];
+  List<Object?> get props => [key];
+
+  @override
+  String toString() {
+    return 'Note $key: [$title][$isCompleted]: $description';
+  }
+
+  Note copyWith({
+    String? title,
+    String? description,
+    bool? isCompleted,
+  }) {
+    return Note(
+      title: title ?? this.title,
+      description: description ?? this.description,
+      isCompleted: isCompleted ?? this.isCompleted,
+    );
+  }
 }
