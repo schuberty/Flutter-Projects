@@ -11,23 +11,24 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('To-Dos'),
       ),
-      body: const Notes(),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _startAddNewNote(context),
         child: const Icon(Icons.add),
       ),
+      body: const Notes(),
     );
   }
 
   _startAddNewNote(BuildContext context) {
     showModalBottomSheet(
-        context: context,
-        builder: (_) {
-          return GestureDetector(
-            onTap: () {},
-            child: const NewNote(),
-            behavior: HitTestBehavior.opaque,
-          );
-        });
+      context: context,
+      builder: (_) {
+        return GestureDetector(
+          onTap: () {},
+          child: const NewNote(),
+          behavior: HitTestBehavior.opaque,
+        );
+      },
+    );
   }
 }

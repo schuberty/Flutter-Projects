@@ -17,10 +17,16 @@ class AddNoteEvent extends NotesEvent {
   final String description;
 
   const AddNoteEvent(this.title, this.description);
+
+  @override
+  List<Object> get props => [title, description];
 }
 
 class UpdateNoteEvent extends NotesEvent {
   final Note note;
 
   const UpdateNoteEvent(this.note);
+
+  @override
+  List<Object> get props => [note];
 }

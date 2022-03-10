@@ -13,6 +13,8 @@ class Notes extends StatelessWidget {
       child: BlocBuilder<NotesBloc, NotesState>(
         builder: (context, state) {
           if (state is NotesLoadedState) {
+            // TODO: It's being called only once, need to fix
+            print("### BlocBuilder call with ${state}");
             return ListView(
               children: state.notes
                   .map(
@@ -21,7 +23,7 @@ class Notes extends StatelessWidget {
                       subtitle: Text(e.description),
                       trailing: Checkbox(
                         value: e.isCompleted,
-                        onChanged: (ctx) {
+                        onChanged: (_) {
                           NotesBloc(RepositoryProvider.of(context))
                               .add(UpdateNoteEvent(e));
                         },

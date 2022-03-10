@@ -4,5 +4,6 @@ import 'package:todo_app/app.dart';
 
 void main() async {
   await Hive.initFlutter();
+
   runApp(const TodoApp());
 }

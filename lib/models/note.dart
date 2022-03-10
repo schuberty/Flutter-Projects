@@ -3,7 +3,7 @@ import 'package:hive/hive.dart';
 
 part 'note.g.dart';
 
-@HiveType(typeId: 1)
+@HiveType(typeId: 0)
 class Note extends HiveObject with EquatableMixin {
   @HiveField(0)
   late String title;
@@ -18,5 +18,5 @@ class Note extends HiveObject with EquatableMixin {
   }) : isCompleted = false;
 
   @override
-  List<Object?> get props => throw UnimplementedError();
+  List<Object?> get props => [key];
 }

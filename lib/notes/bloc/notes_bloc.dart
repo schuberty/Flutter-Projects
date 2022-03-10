@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:todo_app/models/note.dart';
@@ -10,9 +12,13 @@ class NotesBloc extends Bloc<NotesEvent, NotesState> {
   final NoteRepository _noteRepository;
 
   NotesBloc(this._noteRepository) : super(NotesInitialState()) {
+    print("### Current State is $state");
+
     on<InitRepositoryWithNotesEvent>(((event, emit) async {
       await _noteRepository.init().whenComplete(() {
         final notes = _noteRepository.notes;
+        print("### Loading Notes ${notes.toString()}");
+
         emit(NotesLoadedState(notes));
       });
     }));
@@ -20,6 +26,7 @@ class NotesBloc extends Bloc<NotesEvent, NotesState> {
     on<AddNoteEvent>(((event, emit) async {
       await _noteRepository
           .addNote(Note(title: event.title, description: event.description));
+      print("### Adding Note ${event.title} : ${event.description}");
       final notes = _noteRepository.notes;
       emit(NotesLoadedState(notes));
     }));
@@ -28,6 +35,7 @@ class NotesBloc extends Bloc<NotesEvent, NotesState> {
       final newNote = event.note;
       newNote.isCompleted = !newNote.isCompleted;
       final notes = _noteRepository.notes;
+      print("### Updating Note ${event.note.toString()}");
       await _noteRepository
           .updateNote(event.note, newNote)
           .whenComplete(() => emit(NotesLoadedState(notes)));

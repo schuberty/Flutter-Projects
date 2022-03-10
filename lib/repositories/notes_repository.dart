@@ -20,8 +20,9 @@ class NoteRepository {
     await noteToRemove.delete();
   }
 
-  Future<void> updateNote(final Note note, final Note newNote) async {
-    final noteToUpdate = _notes.values.firstWhere((element) => element == note);
+  Future<void> updateNote(final Note oldNote, final Note newNote) async {
+    final noteToUpdate =
+        _notes.values.firstWhere((element) => element == oldNote);
     final index = noteToUpdate.key as int;
     await _notes.put(index, newNote);
   }

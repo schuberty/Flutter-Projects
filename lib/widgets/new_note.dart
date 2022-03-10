@@ -13,7 +13,7 @@ class _NewNoteState extends State<NewNote> {
   final _titleController = TextEditingController();
   final _descriptionController = TextEditingController();
 
-  void _submitNote() {
+  void _submitNote(BuildContext context) {
     final titleText = _titleController.text;
     final descriptionText = _descriptionController.text;
 
@@ -49,7 +49,7 @@ class _NewNoteState extends State<NewNote> {
               TextField(
                 decoration: const InputDecoration(labelText: 'Description'),
                 controller: _descriptionController,
-                onSubmitted: (_) => _submitNote(),
+                onSubmitted: (_) => _submitNote(context),
                 keyboardType: TextInputType.text,
               ),
               Container(
@@ -59,7 +59,7 @@ class _NewNoteState extends State<NewNote> {
                 alignment: Alignment.centerRight,
                 child: ElevatedButton(
                   child: const Text("Add Note"),
-                  onPressed: _submitNote,
+                  onPressed: () => _submitNote(context),
                 ),
               ),
             ],
