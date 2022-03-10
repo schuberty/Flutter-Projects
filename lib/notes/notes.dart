@@ -42,7 +42,7 @@ class Notes extends StatelessWidget {
           textAlign: TextAlign.center,
           text: const TextSpan(
             children: [
-              TextSpan(text: 'You have no widgets!\nType the '),
+              TextSpan(text: 'You have no Notes!\nType the '),
               WidgetSpan(
                   child: Icon(
                     Icons.add,
