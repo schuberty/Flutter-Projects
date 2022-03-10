@@ -21,8 +21,7 @@ class _NewNoteState extends State<NewNote> {
       return;
     }
 
-    NotesBloc(RepositoryProvider.of(context))
-        .add(AddNoteEvent(titleText, descriptionText));
+    context.read<NotesBloc>().add(AddNoteEvent(titleText, descriptionText));
 
     Navigator.of(context).pop();
   }

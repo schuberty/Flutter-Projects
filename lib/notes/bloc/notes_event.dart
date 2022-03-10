@@ -22,10 +22,10 @@ class AddNoteEvent extends NotesEvent {
   List<Object> get props => [title, description];
 }
 
-class UpdateNoteEvent extends NotesEvent {
+class ToggleNoteCompletition extends NotesEvent {
   final Note note;
 
-  const UpdateNoteEvent(this.note);
+  const ToggleNoteCompletition(this.note);
 
   @override
   List<Object> get props => [note];
