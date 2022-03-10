@@ -1,16 +1,18 @@
 part of 'notes_bloc.dart';
 
-abstract class NotesState extends Equatable {}
+class NotesState extends Equatable {
+  const NotesState();
 
-class NotesInitialState extends NotesState {
   @override
   List<Object?> get props => [];
 }
 
+class NotesInitialState extends NotesState {}
+
 class NotesLoadedState extends NotesState {
   final List<Note> notes;
 
-  NotesLoadedState(this.notes);
+  const NotesLoadedState(this.notes);
 
   @override
   List<Object?> get props => [notes];

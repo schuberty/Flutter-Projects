@@ -18,5 +18,5 @@ class Note extends HiveObject with EquatableMixin {
   }) : isCompleted = false;
 
   @override
-  List<Object?> get props => [key];
+  List<Object?> get props => [key, title, description, isCompleted];
 }

@@ -9,7 +9,7 @@ class NoteRepository {
     _notes = await Hive.openBox<Note>('notes');
   }
 
-  List<Note> get notes => _notes.values.toList();
+  List<Note> get notes => [..._notes.values.toList()];
 
   Future<void> addNote(final Note note) async {
     await _notes.add(note);
