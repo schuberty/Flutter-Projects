@@ -24,6 +24,11 @@ class NotesBloc extends Bloc<NotesEvent, NotesState> {
       emit(NotesLoadedState(_noteRepository.notes));
     }));
 
+    on<DeleteNoteEvent>(((event, emit) async {
+      await _noteRepository.removeNote(event.note);
+      emit(NotesLoadedState(_noteRepository.notes));
+    }));
+
     on<ToggleNoteCompletition>(((event, emit) async {
       final newNote = event.note.copyWith(isCompleted: !event.note.isCompleted);
       await _noteRepository.updateNote(event.note, newNote);

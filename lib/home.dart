@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/notes/notes.dart';
-import 'package:todo_app/widgets/new_note.dart';
+import 'package:todo_app/notes/widgets/new_note.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
