@@ -1,34 +1,45 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todo_app/models/note.dart';
 import 'package:todo_app/notes/bloc/notes_bloc.dart';
 
-// TODO: Modify and merge this with UpdateNote to avoid repetition as both are basically equal
-class NewNote extends StatefulWidget {
-  const NewNote({Key? key}) : super(key: key);
+// TODO: Modify and merge this with NewNote to avoid repetition as both are basically equal
+class UpdateNote extends StatefulWidget {
+  final Note note;
+
+  const UpdateNote({
+    Key? key,
+    required this.note,
+  }) : super(key: key);
 
   @override
-  State<NewNote> createState() => _NewNoteState();
+  State<UpdateNote> createState() => _UpdateNoteState();
 }
 
-class _NewNoteState extends State<NewNote> {
+class _UpdateNoteState extends State<UpdateNote> {
   final _titleController = TextEditingController();
   final _descriptionController = TextEditingController();
 
-  void _submitNote(BuildContext context) {
-    final titleText = _titleController.text;
-    final descriptionText = _descriptionController.text;
-
-    if (titleText.isEmpty || descriptionText.isEmpty) {
-      return;
-    }
-
-    context.read<NotesBloc>().add(AddNoteEvent(titleText, descriptionText));
-
-    Navigator.of(context).pop();
-  }
-
   @override
   Widget build(BuildContext context) {
+    _titleController.text = widget.note.title;
+    _descriptionController.text = widget.note.description;
+
+    void _updateNote(BuildContext context) {
+      final titleText = _titleController.text;
+      final descriptionText = _descriptionController.text;
+
+      if (titleText.isEmpty || descriptionText.isEmpty) {
+        return;
+      }
+
+      context
+          .read<NotesBloc>()
+          .add(UpdateNoteEvent(widget.note, titleText, descriptionText));
+
+      Navigator.of(context).pop();
+    }
+
     return SingleChildScrollView(
       child: Card(
         elevation: 5,
@@ -41,7 +52,7 @@ class _NewNoteState extends State<NewNote> {
           ),
           child: Column(
             children: [
-              const Text('New note'),
+              const Text('Editing note'),
               TextField(
                 decoration: const InputDecoration(labelText: 'Title'),
                 controller: _titleController,
@@ -50,7 +61,7 @@ class _NewNoteState extends State<NewNote> {
               TextField(
                 decoration: const InputDecoration(labelText: 'Description'),
                 controller: _descriptionController,
-                onSubmitted: (_) => _submitNote(context),
+                onSubmitted: (_) => _updateNote(context),
                 keyboardType: TextInputType.text,
               ),
               Container(
@@ -59,10 +70,10 @@ class _NewNoteState extends State<NewNote> {
               Align(
                 alignment: Alignment.centerRight,
                 child: ElevatedButton(
-                  child: const Text('Add Note'),
-                  onPressed: () => _submitNote(context),
+                  child: const Text('Save Edited Note'),
+                  onPressed: () => _updateNote(context),
                 ),
-              ),
+              )
             ],
           ),
         ),

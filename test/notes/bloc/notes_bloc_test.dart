@@ -37,6 +37,7 @@ void main() {
 
       // TODO: Implement emit AddNoteEvent(...) and expect NotesLoadedState[...] with one and same added Note.
       // TODO: Implement emit ToggleNoteCompletition(...) and expect NotesLoadedState[...] with Note having isCompleted checked true.
+      // TODO: Implement emition for testing DeleteNoteEvent and UpdateNoteEvent.
     },
   );
 }
