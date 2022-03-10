@@ -9,6 +9,7 @@ class Notes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<NotesBloc, NotesState>(
+      // TODO: Add a Separator after n % 2, n being Notes, for better visualize Notes in list
       builder: (context, state) {
         if (state is NotesLoadedState) {
           return state.notes.isNotEmpty

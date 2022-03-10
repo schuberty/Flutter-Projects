@@ -11,6 +11,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('ToDo Notes'),
       ),
+      // TODO: Fix FloatingActionButton overriding Notes when list gets out of screen
       floatingActionButton: FloatingActionButton(
         onPressed: () => _startAddNewNote(context),
         child: const Icon(Icons.add),
