@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "13126886203",
+    "project_id": "authentication-flow",
+    "storage_bucket": "authentication-flow.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:13126886203:android:d4014d14fb48cca3014d1e",
+        "android_client_info": {
+          "package_name": "com.example.authentication_flow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "13126886203-r867uml9bujcta95k9b5os7k5u24niqb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCvztMWKREx4A_SbLOZv3MEOVinHl7Djo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "13126886203-r867uml9bujcta95k9b5os7k5u24niqb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
