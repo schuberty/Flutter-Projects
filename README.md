@@ -31,7 +31,7 @@ ToDo App is an app to save notes locally, was made with [BLoC](https://pub.dev/p
 
 Main goal was to learn about state management using BLoC and how to use a package, in this case Hive, to achieve data persistence.
 
-## [Messaging App](./Messasing-App/)
+## [Messaging App](./Messaging-App/)
 
 ### About
 

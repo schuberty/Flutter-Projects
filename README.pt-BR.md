@@ -31,7 +31,7 @@ ToDo App é um aplicativo para guardar notas escritas localmente, foi feito com 
 
 O objetivo principal era aprender sobre gerenciamento de estado usando BLoC e como usar um pacote, neste caso o Hive, para ter a persistência dos dados.
 
-## [Messaging App](./Messasing-App/)
+## [Messaging App](./Messaging-App/)
 
 ### Sobre
 
