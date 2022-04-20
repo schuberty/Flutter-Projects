@@ -21,7 +21,7 @@ Repository for Projects made with [Flutter SDK](https://flutter.dev/).
 
 # Projects
 
-## [ToDo App](./ToDo-App/android)
+## [ToDo App](./ToDo-App/)
 
 ### About
 
